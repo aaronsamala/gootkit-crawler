@@ -15,3 +15,9 @@ If there was not a match, it would do the same, but it would be in a no-match fo
 
 All python scripts will use a sleep function.
 
+List of Python files that we will use for this project:
+- crawler.py
+- downloader.py
+- regex_matcher.py
+- file_utils.py
+- sleep_utils.py
