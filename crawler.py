@@ -13,7 +13,7 @@ import urllib.parse
 from urllib.parse import urljoin
 
 # Create debugging flag
-debugging = False
+debugging = True
 
 # Function get the search term from search_terms_new.txt
 def get_search_terms():
@@ -31,7 +31,7 @@ def get_search_terms():
             print("Error: ", e)
         return []
     
-# Function to move the search term from search_terms_new.txt to search_terms_done.txt; if debugging is true, do nothing.
+# Function to move the search term from search_terms_new.txt to search_terms_complete.txt; if debugging is true, do nothing.
 def move_search_term(search_term):
     try:
         if not debugging:
@@ -41,7 +41,7 @@ def move_search_term(search_term):
                 for line in lines:
                     if line.strip() != search_term:
                         file.write(line)
-            with open('search_terms_done.txt', 'a') as file:
+            with open('search_terms_complete.txt', 'a') as file:
                 file.write(search_term + "\n")
     except Exception as e:
         if debugging:
@@ -176,3 +176,10 @@ def main():
                 file.write("Error: " + str(e) + "\n")
         else:
             print("Error: ", e)
+
+if __name__ == "__main__":
+    if debugging:
+        print("Starting main...")
+    main()
+
+# End of crawler.py
