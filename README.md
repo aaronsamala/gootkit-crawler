@@ -42,3 +42,7 @@ touch /home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootk
 touch /home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootkit-crawler/article_match.txt
 touch /home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootkit-crawler/article_no_match.txt
 touch /home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootkit-crawler/debug.log
+
+TODO:
+20240415: Crawler is erroring at the initial web request. Need to continue dubugging.
+
