@@ -11,6 +11,7 @@ import sys
 import json
 import urllib.parse
 from urllib.parse import urljoin
+import datetime
 
 # Create debugging flag
 debugging = True
@@ -166,7 +167,7 @@ def main():
             url = "https://duckduckgo.com/html/?q=" + search_term
             links = get_links_from_web_page(url)
             if debugging:
-                print("Links: ", links)
+                print(datetime.datetime.now(), "Links: ", links)
             for link in links:
                 print(link)
             move_search_term(search_term)
@@ -179,7 +180,14 @@ def main():
 
 if __name__ == "__main__":
     if debugging:
-        print("Starting main...")
+        print(datetime.datetime.now(), "Starting main...")
+        # Set the log file path
+        log_file = '/home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootkit-crawler/debug.log'
+
+        # Redirect stdout to the log file
+        sys.stdout = open(log_file, 'a')
+
+        main()
     main()
 
 # End of crawler.py
