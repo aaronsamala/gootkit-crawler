@@ -58,6 +58,7 @@ def get_links(url):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         links = soup.find_all('a', href=True)
+        
         return links
     except Exception as e:
         if debugging:
@@ -136,11 +137,29 @@ def get_fragment(url):
 def get_links_from_web_page(url):
     try:
         links = get_links(url)
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + "links: " + str(links) + "\n")
         domain_name = get_domain_name(url)
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + "domain_name: " + domain_name + "\n")
         base_url = get_base_url(url)
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + "base_url: " + base_url + "\n")
         path = get_path(url)
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + "path: " + path + "\n")
         query = get_query(url)
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + "query: " + query + "\n")
         fragment = get_fragment(url)
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + "fragment: " + fragment + "\n")
         links_list = []
         for link in links:
             link = link['href']
@@ -181,13 +200,13 @@ def main():
 if __name__ == "__main__":
     if debugging:
         print(datetime.datetime.now(), "Starting main...")
+        with open('debug.log', 'a') as file:
+            file.write(str(datetime.datetime.now()) + " Starting main...\n")
         # Set the log file path
-        log_file = '/home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootkit-crawler/debug.log'
-
+        log_file = 'debug.log'
         # Redirect stdout to the log file
         sys.stdout = open(log_file, 'a')
-
-        main()
+        
     main()
 
 # End of crawler.py
