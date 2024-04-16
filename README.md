@@ -25,7 +25,8 @@ List of Python files that we will use for this project:
 - sleep_utils.py
 
 List of folders and text files this project will need:
-- search_terms.txt (text file)
+- search_terms_new.txt (text file)
+- search_terms_complete.txt (text file)
 - article_tracking_list.txt (text file)
 - article_match.txt (text file)
 - article_no_match.txt (text file)
