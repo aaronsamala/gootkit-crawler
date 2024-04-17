@@ -22,7 +22,12 @@ def get_search_terms():
         search_terms = []
         with open('search_terms_new.txt', 'r') as file:
             for line in file:
-                search_terms.append(line.strip())
+                # url encode the search term, and save it as search_terms_url_encoded
+                search_terms_url_encoded = urllib.parse.quote(line.strip())
+                # replace the %20 with +, and save it as search_terms_plus
+                search_terms_plus = search_terms_url_encoded.replace("%20", "+")
+                # append the search_terms_plus to search_terms
+                search_terms.append(search_terms_plus)
         return search_terms
     except Exception as e:
         if debugging:
@@ -54,6 +59,10 @@ def move_search_term(search_term):
 
 # Function to get the links from the web page
 def get_links(url):
+    # if debugging is true, write the url to the debug.log file
+    if debugging:
+        with open('debug.log', 'a') as file:
+            file.write(str(datetime.datetime.now()) + " get_links_url: " + url + "\n")
     try:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -139,27 +148,27 @@ def get_links_from_web_page(url):
         links = get_links(url)
         if debugging:
             with open('debug.log', 'a') as file:
-                file.write(str(datetime.datetime.now()) + "links: " + str(links) + "\n")
+                file.write(str(datetime.datetime.now()) + " links: " + str(links) + "\n")
         domain_name = get_domain_name(url)
         if debugging:
             with open('debug.log', 'a') as file:
-                file.write(str(datetime.datetime.now()) + "domain_name: " + domain_name + "\n")
+                file.write(str(datetime.datetime.now()) + " domain_name: " + domain_name + "\n")
         base_url = get_base_url(url)
         if debugging:
             with open('debug.log', 'a') as file:
-                file.write(str(datetime.datetime.now()) + "base_url: " + base_url + "\n")
+                file.write(str(datetime.datetime.now()) + " base_url: " + base_url + "\n")
         path = get_path(url)
         if debugging:
             with open('debug.log', 'a') as file:
-                file.write(str(datetime.datetime.now()) + "path: " + path + "\n")
+                file.write(str(datetime.datetime.now()) + " path: " + path + "\n")
         query = get_query(url)
         if debugging:
             with open('debug.log', 'a') as file:
-                file.write(str(datetime.datetime.now()) + "query: " + query + "\n")
+                file.write(str(datetime.datetime.now()) + " query: " + query + "\n")
         fragment = get_fragment(url)
         if debugging:
             with open('debug.log', 'a') as file:
-                file.write(str(datetime.datetime.now()) + "fragment: " + fragment + "\n")
+                file.write(str(datetime.datetime.now()) + " fragment: " + fragment + "\n")
         links_list = []
         for link in links:
             link = link['href']
@@ -180,10 +189,10 @@ def main():
     try:
         search_terms = get_search_terms()
         if debugging:
-            print("Search Terms: ", search_terms)
+            print(str(datetime.datetime.now()) + " Search Terms: ", search_terms)
         for search_term in search_terms:
             search_term = search_term.replace(" ", "+")
-            url = "https://duckduckgo.com/html/?q=" + search_term
+            url = "https://duckduckgo.com/?q=" + search_term
             links = get_links_from_web_page(url)
             if debugging:
                 print(datetime.datetime.now(), "Links: ", links)

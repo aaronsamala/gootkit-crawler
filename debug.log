@@ -1,18 +1,15 @@
-
-2024-04-15 16:49:42.827195 Starting main...
-Search Terms:  ['site:www.casagaribaldi.it inurl:- enterprise agreement']
-2024-04-15 16:49:43.349522 Links:  ['mailto:error-lite+2162@duckduckgo.com?subject=Error getting results']
-mailto:error-lite+2162@duckduckgo.com?subject=Error getting results
-Search Terms:  ['site:www.casagaribaldi.it inurl:- enterprise agreement']
-2024-04-15 16:49:43.896979 Links:  ['mailto:error-lite+2162@duckduckgo.com?subject=Error getting results']
-mailto:error-lite+2162@duckduckgo.com?subject=Error getting results
-2024-04-15 16:59:43.051658 Starting main...
-2024-04-15 16:59:43.627533links: [<a href="mailto:error-lite+2162@duckduckgo.com?subject=Error getting results">email us</a>]
-2024-04-15 16:59:43.629037domain_name: duckduckgo.com
-2024-04-15 16:59:43.630944base_url: https://duckduckgo.com
-2024-04-15 16:59:43.630971path: /html/
-2024-04-15 16:59:43.630982query: q=site:www.casagaribaldi.it+inurl:-+enterprise+agreement
-2024-04-15 16:59:43.630992fragment: 
-Search Terms:  ['site:www.casagaribaldi.it inurl:- enterprise agreement']
-2024-04-15 16:59:43.631015 Links:  ['mailto:error-lite+2162@duckduckgo.com?subject=Error getting results']
-mailto:error-lite+2162@duckduckgo.com?subject=Error getting results
+2024-04-16 17:52:44.820847 Starting main...
+2024-04-16 17:52:44.821111 get_links_url: https://duckduckgo.com/?q=site%3Awww.casagaribaldi.it+inurl%3A-+enterprise+agreement
+2024-04-16 17:52:45.186254 links: [<a class="logo_homepage" href="/about" id="logo_homepage_link">
+				About DuckDuckGo
+				<span class="logo_homepage__tt">Learn More</span>
+</a>, <a href="" id="error-email">email us</a>]
+2024-04-16 17:52:45.186417 domain_name: duckduckgo.com
+2024-04-16 17:52:45.186435 base_url: https://duckduckgo.com
+2024-04-16 17:52:45.186446 path: /
+2024-04-16 17:52:45.186455 query: q=site%3Awww.casagaribaldi.it+inurl%3A-+enterprise+agreement
+2024-04-16 17:52:45.186465 fragment: 
+2024-04-16 17:52:44.821097 Search Terms:  ['site%3Awww.casagaribaldi.it+inurl%3A-+enterprise+agreement']
+2024-04-16 17:52:45.186488 Links:  ['https://duckduckgo.com/about', 'https://duckduckgo.com']
+https://duckduckgo.com/about
+https://duckduckgo.com
