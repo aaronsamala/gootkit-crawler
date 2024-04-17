@@ -45,4 +45,4 @@ touch /home/user/Documents/SoftwareDevelopment/GitHubRepos/gootkit-crawler/gootk
 
 TODO:
 20240415: Crawler is erroring at the initial web request. Need to continue dubugging.
-
+20240416: Crawler is pulling google dork page 1. Need to parse direct link from the Google url redirector.

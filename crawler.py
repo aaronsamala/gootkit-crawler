@@ -64,10 +64,20 @@ def get_links(url):
         with open('debug.log', 'a') as file:
             file.write(str(datetime.datetime.now()) + " get_links_url: " + url + "\n")
     try:
-        response = requests.get(url)
+        # Set the headers to appear as a browser
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+        # Get the response from the url
+
+        response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
         links = soup.find_all('a', href=True)
-        
+        # if debugging is true, write the response, the soup, and the links to the debug.log file
+        if debugging:
+            with open('debug.log', 'a') as file:
+                file.write(str(datetime.datetime.now()) + " response: " + str(response) + "\n")
+                file.write(str(datetime.datetime.now()) + " soup: " + str(soup) + "\n")
+                file.write(str(datetime.datetime.now()) + " links: " + str(links) + "\n")
         return links
     except Exception as e:
         if debugging:
@@ -192,7 +202,7 @@ def main():
             print(str(datetime.datetime.now()) + " Search Terms: ", search_terms)
         for search_term in search_terms:
             search_term = search_term.replace(" ", "+")
-            url = "https://duckduckgo.com/?q=" + search_term
+            url = "https://www.google.com/search?q=" + search_term
             links = get_links_from_web_page(url)
             if debugging:
                 print(datetime.datetime.now(), "Links: ", links)
